@@ -21,6 +21,8 @@ fetch('../data/data.json')
             container.innerHTML = ''; // clear previous cards
 
             data.forEach( item => {
+
+              const previousLabel = getPreviousLabel(timeframe, item.timeframes[timeframe].previous);    
       
               const card = document.createElement('article');
               card.classList.add('time-card');
@@ -35,10 +37,55 @@ fetch('../data/data.json')
                           </div>
                           <div>
                                 <p>${item.timeframes[timeframe].current} hrs</p>
-                                <p>Last${item.timeframes[timeframe].previous} hrs</p>
+                                <p>${previousLabel}</p>
                           </div>
                     </div>
-              `
+              `;
+
+              container.appendChild(card)
             });
 
+            
       }
+      
+      const getPreviousLabel = (timeframe, previousValue) => {
+
+            switch (timeframe) {
+                  case 'daily':
+                        
+                        return `Last day - ${previousValue} hrs`;
+                  
+                  case 'weekly':
+                              
+                        return `Last week - ${previousValue} hrs`;
+                  
+                  case 'monthly':
+                        
+                        return `Last month - ${previousValue} hrs`; 
+            
+                  default:
+
+                        return `Previous - ${previousValue} hrs`;;
+            }
+      }
+
+
+
+      //buttons
+
+      const btnDaily = document.getElementById('btn-daily');
+      const btnWeekly = document.getElementById('btn-weekly');
+      const btnMonthly = document.getElementById('btn-monthly');
+
+
+      btnDaily.addEventListener('click', () => {
+            updatedCards('daily')
+      })
+
+      btnWeekly.addEventListener('click', () => {
+            updatedCards('weekly')
+      })
+
+      btnMonthly.addEventListener('click', () => {
+            updatedCards('monthly')
+      })
