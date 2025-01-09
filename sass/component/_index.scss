@@ -1,0 +1,365 @@
+@use '../global/variables';
+
+
+
+
+.header {
+
+      background-color: variables.$dark-blue;
+      border-radius: 15px;
+      margin-bottom: 24px;
+
+      &-content {
+            display: flex;
+            flex-direction: column;
+            width: 327px;
+            height: 203px;
+            
+
+            &__title {
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  align-items: center;
+                  padding: 33px;
+                  height: 133px;
+                  border-radius: 15px;
+                  background-color: variables.$blue;
+
+
+                  img {
+                        width: 64px;
+                        border-radius: 9999px;
+                        border: 3px solid white;
+                  }
+
+                  &-text {
+                        
+
+                        p {
+                              font-size: 15px;
+                              font-weight: 100;
+                        }
+
+                        h2 {
+                              font-size: 24px;
+                              font-weight: 200;
+                              text-transform: capitalize;
+                        }
+                  }
+            }
+
+            &__nav {
+                  padding: 32px;
+                  text-transform: capitalize;
+                  
+                  ul {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        text-decoration: none;
+                        list-style-type: none;
+
+                        li{
+                              margin-bottom: 21px;
+                              cursor: pointer;
+                        }
+                  }
+            }
+      }
+
+}
+
+
+
+.isSelected {
+      color: variables.$pale-blue;
+}
+
+
+
+
+main {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      #time-cards-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            z-index: 30;
+
+
+            .time-card {
+                  position: relative;
+                  width: 327px;
+                  height: 122px;
+                  z-index: 20;
+                  margin-bottom: 56px;
+
+
+                  .time-card-image {
+                        position: relative;
+                        width: 327px;
+                        height: 44px;
+                        border-radius: 15px 15px 0 0;
+                        overflow: hidden;
+                        z-index: 10;
+                        
+
+
+                        img {
+                              position: absolute;
+                              width: 78px;
+                              right: 12px;
+                              top: -6px;
+                        }
+
+                  }
+
+                  .time-card-data{
+                        background-color: variables.$dark-blue;
+                        width: 327px;
+                        height: 122px;
+                        position: absolute;
+                        border-radius: 15px;
+                        top: 32px;
+                        z-index: 20;
+                        padding: 28px 24px;
+
+                        .time-card-title {
+                              display: flex;
+                              justify-content: space-between;
+                              align-items: center;
+                              margin-bottom: 6px;
+                              
+                              h5{
+                                    text-align: center;
+                                    font-size: 18px;
+                                    font-weight: 400;
+                              }
+
+                              img {
+                                    height: 5px;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                          color: white;
+                                    }
+                              };
+                        }
+
+                        .time-card-hour {
+
+                              display: flex;
+                              flex-direction: row;
+                              justify-content: space-between;
+                              align-items: center;
+
+
+                              #big-hour {
+                                    font-weight: 100;
+                                    font-size: 32px;
+                                    margin-bottom: 8px;
+                              }
+
+                              #previous {
+                                    color: variables.$pale-blue;
+                                    font-size: 15px;
+                                    font-weight: 100;
+                              }
+                        }
+                  }
+
+            }
+      }
+}
+
+
+
+
+
+@media screen and (min-width: 1280px) {
+
+      .header {
+
+            background-color: variables.$dark-blue;
+            border-radius: 15px;
+            width: fit-content;
+            margin: 0;
+      
+            &-content {
+                  display: flex;
+                  flex-direction: column;
+                  width: 255px;
+                  height: 518px;
+                  
+      
+                  &__title {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        align-items: flex-start;
+                        padding: 32px;
+                        height: 354px;
+                        border-radius: 15px;
+                        background-color: variables.$blue;
+      
+      
+                        img {
+                              width: 78px;
+                              border-radius: 9999px;
+                              border: 3px solid white;
+                        }
+      
+                        &-text {
+                              
+      
+                              p {
+                                    font-size: 15px;
+                                    font-weight: 100;
+                              }
+      
+                              h2 {
+                                    font-size: 40px;
+                                    font-weight: 200;
+                                    text-transform: capitalize;
+                              }
+                        }
+                  }
+      
+                  &__nav {
+                        padding: 32px;
+                        display: flex;
+                        flex-direction: column;
+                        text-transform: capitalize;
+                        
+                        ul {
+                              display: flex;
+                              flex-direction: column;
+                              text-decoration: none;
+                              list-style-type: none;
+      
+                              li{
+                                    margin-bottom: 21px;
+                                    cursor: pointer;
+                              }
+                        }
+                  }
+            }
+      
+      }
+      
+      
+      
+      
+      main {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 825px;
+            height: 518px;
+            max-width: fit-content;
+
+      
+            #time-cards-container {
+                  display: flex;
+                  justify-content: center;
+                  align-content: space-between;
+                  flex-wrap: wrap;
+                  z-index: 50;
+                  height: 100%;
+                  box-sizing: border-box;
+      
+      
+                        .time-card {
+                              display: flex;
+                              box-sizing: border-box;
+                              flex-direction: column;
+                              align-items: center;
+                              flex: 1 1 33%;
+                              position: relative;
+                              width: 255px;
+                              height: 244px;
+                              z-index: 20;
+                              overflow: hidden;
+                              margin: 0; 
+                              
+            
+            
+                              .time-card-image {
+                                    position: relative;
+                                    height: 80px;
+                                    width: 255px;
+                                    border-radius: 15px;
+                                    z-index: 10;
+            
+            
+                                    img {
+                                          position: absolute;
+                                          width: 78px;
+                                          right: 12px;
+                                          top: -6px;
+                                    }
+            
+                              }
+            
+                              .time-card-data{
+                                    background-color: variables.$dark-blue;
+                                    width: 255px;
+                                    height: 199px;
+                                    border-radius: 15px;
+                                    position: absolute;
+                                    top: 44px;
+                                    z-index: 20;
+                                    padding: 30px;
+            
+                                    .time-card-title {
+                                          display: flex;
+                                          justify-content: space-between;
+                                          justify-items: center;
+                                          margin-bottom: 24px;
+                                          
+                                          h5{
+                                                text-align: center;
+                                                font-size: 18px;
+                                                font-weight: 500;
+                                          }
+            
+                                          img {
+                                                height: 5px;
+                                                cursor: pointer;
+            
+                                                &:hover {
+                                                      color: white;
+                                                }
+                                          };
+                                    }
+            
+                                    .time-card-hour {
+            
+            
+                                          #big-hour {
+                                                font-weight: 100;
+                                                font-size: 56px;
+                                                margin-bottom: 8px;
+                                          }
+            
+                                          #previous {
+                                                color: variables.$pale-blue;
+                                                font-size: 15px;
+                                          }
+                                    }
+                              }
+            
+                        }
+      
+            }
+      }
+
+
+}

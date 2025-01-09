@@ -1,10 +1,11 @@
+
 let timeframe = 'weekly'; // default timeframe
 let data = [] //to store de fetched data
 
 
 // fetch data from JSON
 
-fetch('../data/data.json')
+fetch('./data/data.json')
       .then(resp => resp.json())
       .then(json => {
             data = json;
@@ -27,19 +28,19 @@ fetch('../data/data.json')
               const card = document.createElement('article');
               card.classList.add('time-card');
               card.innerHTML = `
-                    <div>
-                          <img src="${item.image} alt="${item.title}" >
-                    </div>
-                    <div>
-                          <div>
-                                <h5>${item.title}</h5>
-                                <img src= "#" alt="menu">
-                          </div>
-                          <div>
-                                <p>${item.timeframes[timeframe].current} hrs</p>
-                                <p>${previousLabel}</p>
-                          </div>
-                    </div>
+                              <div class="time-card-image" style="background-color:${ item.color }">
+                                    <img src="${item.image}" alt="${item.title}" >
+                              </div>
+                              <div class="time-card-data">
+                                    <div class="time-card-title">
+                                          <h5>${item.title}</h5>
+                                          <img src= "../assets/images/icon-ellipsis.svg" alt="menu">
+                                    </div>
+                                    <div class="time-card-hour">
+                                          <p id="big-hour">${item.timeframes[timeframe].current}hrs</p>
+                                          <p id="previous">${previousLabel}</p>
+                                    </div>
+                              </div>
               `;
 
               container.appendChild(card)
@@ -78,14 +79,29 @@ fetch('../data/data.json')
       const btnMonthly = document.getElementById('btn-monthly');
 
 
+      // funcionality to change the selected button
+
+      const selectedButton = (selectedButton) => {
+            [btnDaily, btnWeekly, btnMonthly].forEach( button => {
+                  button.classList.remove('isSelected');
+            });
+
+            selectedButton.classList.add('isSelected');
+      }
+
+
       btnDaily.addEventListener('click', () => {
-            updatedCards('daily')
+            updatedCards('daily');
+            selectedButton(btnDaily);
+
       })
 
       btnWeekly.addEventListener('click', () => {
-            updatedCards('weekly')
+            updatedCards('weekly');
+            selectedButton(btnWeekly);
       })
 
       btnMonthly.addEventListener('click', () => {
-            updatedCards('monthly')
+            updatedCards('monthly');
+            selectedButton(btnMonthly);
       })
