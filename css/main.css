@@ -294,6 +294,11 @@ main #time-cards-container .time-card .time-card-data .time-card-hour #previous 
   main #time-cards-container .time-card .time-card-data .time-card-title img:hover {
     color: white;
   }
+  main #time-cards-container .time-card .time-card-data .time-card-hour {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   main #time-cards-container .time-card .time-card-data .time-card-hour #big-hour {
     font-weight: 100;
     font-size: 56px;

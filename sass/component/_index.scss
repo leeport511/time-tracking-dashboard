@@ -341,7 +341,10 @@ main {
                                     }
             
                                     .time-card-hour {
-            
+
+                                          display: flex;
+                                          flex-direction: column;
+                                          align-items: flex-start;
             
                                           #big-hour {
                                                 font-weight: 100;
